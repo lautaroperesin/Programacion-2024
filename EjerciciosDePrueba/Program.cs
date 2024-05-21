@@ -20,7 +20,25 @@ internal class Program
         //PruebaDeObjetoSplit();
         //PruebaDeObjetoPersona();
         //PruebaDeObjetoPavaElectrica();
-        PruebaDeObjetoEstereo();
+        //PruebaDeObjetoEstereo();
+        //PruebaDeClasesAbstractasYHerencia();
+        PruebaCalculadoraPasajePorReferencia();
+    }
+
+    private static void PruebaCalculadoraPasajePorReferencia()
+    {
+        int a = 123;
+        int b = 10;
+        int total = 0;
+        Calculadora calculadora = new Calculadora();
+        calculadora.Sumar(a, b, ref total);
+        Console.WriteLine("La suma total es: " + total);
+    }
+
+    private static void PruebaDeClasesAbstractasYHerencia()
+    {
+        Gerente lautaro = new Gerente("Lautaro", "Peresin");
+        Console.WriteLine(lautaro.ImprimirDatos());
     }
 
     private static void PruebaDeObjetoEstereo()
@@ -41,9 +59,9 @@ internal class Program
         miEstereo.Mostrar();
         miEstereo.CambiarModo(ModosEstereoEnum.CD);
         miEstereo.CambiarPistaCD("Arruinarse - Tan Bionica - Pista 5");
-        miEstereo.SubirVolumen();
-        miEstereo.SubirVolumen();
-        miEstereo.SubirVolumen();
+        miEstereo.BajarVolumen();
+        miEstereo.BajarVolumen();
+        miEstereo.BajarVolumen();
         miEstereo.Mostrar();
     }
 

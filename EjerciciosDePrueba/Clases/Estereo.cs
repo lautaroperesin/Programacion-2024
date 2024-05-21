@@ -16,8 +16,8 @@ namespace EjerciciosDePrueba.Clases
         private bool Encendido;
         private int Volumen;
         private double Frecuencia_radio;
-        private string Bluetooth;
-        private string CD;
+        private string NombreBluetooth;
+        private string PistaCD;
 
         public Estereo(string marca, string color)
         {
@@ -40,12 +40,18 @@ namespace EjerciciosDePrueba.Clases
 
         public void SubirVolumen()
         {
-            Volumen++;
+            if (Volumen < 30)
+                Volumen++;
+            else
+                Console.WriteLine("Volumen máximo");
         }
 
         public void BajarVolumen()
         {
-            Volumen--;
+            if (Volumen > 0)
+                Volumen--;
+            else
+                Console.WriteLine("Volumen minimo");
         }
 
         public void CambiarModo(ModosEstereoEnum modo)
@@ -81,7 +87,7 @@ namespace EjerciciosDePrueba.Clases
             {
                 if (Modo == ModosEstereoEnum.Bluetooth)
                 {
-                    Bluetooth = nuevaCancion;
+                    NombreBluetooth = nuevaCancion;
                 }
                 else
                 {
@@ -100,7 +106,7 @@ namespace EjerciciosDePrueba.Clases
             {
                 if (Modo == ModosEstereoEnum.CD)
                 {
-                    CD = nuevaPista;
+                    PistaCD = nuevaPista;
                 }
                 else
                 {
@@ -127,10 +133,10 @@ namespace EjerciciosDePrueba.Clases
                     Console.WriteLine($"Estas escuchando la radio {Frecuencia_radio}");
 
                 if(Modo == ModosEstereoEnum.Bluetooth)
-                    Console.WriteLine($"Estas escuchando {Bluetooth}");
+                    Console.WriteLine($"Estas escuchando {NombreBluetooth}");
 
                 if(Modo == ModosEstereoEnum.CD)
-                    Console.WriteLine($"Estas escuchando {CD}");
+                    Console.WriteLine($"Estas escuchando {PistaCD}");
 
                 Console.WriteLine("*********************************");
                 Console.ReadLine();
