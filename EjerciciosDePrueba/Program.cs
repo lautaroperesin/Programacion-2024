@@ -3,10 +3,10 @@
 
 
 using EjerciciosDePrueba.Clases;
-using EjerciciosDePrueba.Clases.Enums;
+using EjerciciosDePrueba.Enums;
 using System.Runtime.CompilerServices;
 
-internal class Program
+public class ProgramEjercicios
 {
     private static void Main(string[] args)
     {
@@ -22,7 +22,24 @@ internal class Program
         //PruebaDeObjetoPavaElectrica();
         //PruebaDeObjetoEstereo();
         //PruebaDeClasesAbstractasYHerencia();
-        PruebaCalculadoraPasajePorReferencia();
+        //PruebaCalculadoraPasajePorReferencia();
+        //Console.WriteLine(ControlFechaValida(29, 2, 2023));
+        //Console.WriteLine(CalcularDiasDeVida(10, 10, 1));
+        PruebaDeClasesGenericas();
+    }
+
+    private static void PruebaDeClasesGenericas()
+    {
+        Empresa<Empleado> empresa = new Empresa<Empleado>("Equipamientos CMS");
+        Gerente empleado1 = new Gerente("Lautaro", "Peresin");
+        Gerente empleado2 = new Gerente("Pedro", "Gomez");
+        Gerente empleado3 = new Gerente("Marcelo", "Fabre");
+        empresa.AgregarEmpleado(empleado1);
+        empresa.AgregarEmpleado(empleado2);
+        empresa.AgregarEmpleado(empleado3);
+        Console.WriteLine(empresa.ListarEmpleados());
+        empresa.QuitarEmpleado(empleado2);
+        Console.WriteLine(empresa.ListarEmpleados());
     }
 
     private static void PruebaCalculadoraPasajePorReferencia()
@@ -282,6 +299,110 @@ internal class Program
         }
     }
 
+    public static bool ControlFechaValida(int dia, int mes, int año)
+    {
+        if (año >= 1)
+        {
+            // Calculamos si el año es bisiesto o no
+            if ((año % 4 == 0) || (año % 100 == 0) && (año % 400 == 0))
+            {
+                return AñoBisiesto(mes, dia);
+            }
+            else
+            {
+                return AñoNoBisiesto(mes, dia);
+            }
+        }
+        else
+        {
+            return false;
+        }
+
+        // Metodo para los años bisiestos
+        static bool AñoBisiesto(int mes, int dia)
+        {
+            //bool fechaValida = true;
+
+            if (mes >= 1 && mes <= 12)
+            {
+                if (mes == 2)
+                {
+                    if (dia > 29)
+                    {
+                        //fechaValida = false;
+                        return false;
+                    }
+                }
+
+                if (mes == 1 || mes == 3 || mes == 5 || mes == 7 || mes == 8 || mes == 10 || mes == 12)
+                {
+                    if (dia > 31 || dia <= 0)
+                    {
+                        //fechaValida = false;
+                        return false;
+                    }
+                }
+                else
+                {
+                    if (dia > 30 || dia <= 0)
+                    {
+                        //fechaValida = false;
+                        return false;
+                    }
+                }
+            }
+            else
+            {
+                //fechaValida = false;
+                return false;
+            }
+
+            return true;
+        }
+
+        // Metodo para los añps no biciestos
+        static bool AñoNoBisiesto(int mes, int dia)
+        {
+            //bool fechaValida = true;
+
+            if (mes >= 1 && mes <= 12)
+            {
+                if (mes == 2)
+                {
+                    if (dia > 28)
+                    {
+                        return false;
+                        //fechaValida = false;
+                    }
+                }
+
+                if (mes == 1 || mes == 3 || mes == 5 || mes == 7 || mes == 8 || mes == 10 || mes == 12)
+                {
+                    if (dia > 31 || dia <= 0)
+                    {
+                        return false;
+                        //fechaValida = false;
+                    }
+                }
+                else
+                {
+                    if (dia > 30 || dia <= 0)
+                    {
+                        return false;
+                        //fechaValida = false;
+                    }
+                }
+            }
+            else
+            {
+                return false;
+                //fechaValida = false;
+            }
+
+            return true;
+        }
+    }
+
     /// <summary>
     /// Creamos un metodo que pida el nombre y apellido del usuario y posteriormente lo salude con "Bienvenido {Apellido}, {Nombre}"
     /// </summary>
@@ -320,6 +441,13 @@ internal class Program
 
         diasDeVida = (años * 365) + (meses * 30) + dias;
         Console.WriteLine($"Los dias de vida totales son: {diasDeVida}");
+    }
+
+    public static int CalcularDiasDeVida(int años, int meses, int dias)
+    {
+        int diasDeVida;
+        diasDeVida = (años * 365) + (meses * 30) + dias;
+        return diasDeVida;
     }
 
     /// <summary>
@@ -380,6 +508,22 @@ internal class Program
         else
         {
             Console.WriteLine("El triangulo es escaleno");
+        }
+    }
+
+    public static string ImprimirTipoDeTriangulo(int lado1, int lado2, int lado3)
+    {
+        if (lado1 == lado2 && lado2 == lado3)
+        {
+            return "equilatero";
+        }
+        else if (lado1 == lado2 || lado2 == lado3 || lado1 == lado3)
+        {
+            return "isoceles";
+        }
+        else
+        {
+            return "escaleno";
         }
     }
 }

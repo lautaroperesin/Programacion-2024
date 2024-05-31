@@ -1,4 +1,4 @@
-﻿using EjerciciosDePrueba.Clases.Enums;
+﻿using EjerciciosDePrueba.Enums;
 using System;
 using System.Collections.Generic;
 using System.Linq;

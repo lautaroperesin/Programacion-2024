@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace EjerciciosDePrueba.Clases
 {
-    abstract class Empleado
+    public abstract class Empleado
     {
         public string Nombre { get; set; }
         public string Apellido { get; set; }
