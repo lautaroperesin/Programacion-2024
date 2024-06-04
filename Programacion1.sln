@@ -5,7 +5,9 @@ VisualStudioVersion = 17.9.34728.123
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EjerciciosDePrueba", "EjerciciosDePrueba\EjerciciosDePrueba.csproj", "{1BF787EE-018A-4636-AE03-01BF173207E6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProyectoTesteoLibros", "ProyectoTesteoLibros\ProyectoTesteoLibros.csproj", "{E8C008A9-C2E5-422E-B1FD-DE6001A0EBB7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ProyectoTesteoLibros", "ProyectoTesteoLibros\ProyectoTesteoLibros.csproj", "{E8C008A9-C2E5-422E-B1FD-DE6001A0EBB7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LibrosDesktop", "LibrosDesktop\LibrosDesktop.csproj", "{A1DB60E5-B7E5-43D3-B891-9555E6633E81}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{E8C008A9-C2E5-422E-B1FD-DE6001A0EBB7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E8C008A9-C2E5-422E-B1FD-DE6001A0EBB7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E8C008A9-C2E5-422E-B1FD-DE6001A0EBB7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A1DB60E5-B7E5-43D3-B891-9555E6633E81}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A1DB60E5-B7E5-43D3-B891-9555E6633E81}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A1DB60E5-B7E5-43D3-B891-9555E6633E81}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A1DB60E5-B7E5-43D3-B891-9555E6633E81}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
