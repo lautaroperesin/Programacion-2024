@@ -44,7 +44,9 @@
             label7 = new Label();
             btnGuardar = new Button();
             btnCancelar = new Button();
+            pictureBoxPortada = new PictureBox();
             ((System.ComponentModel.ISupportInitialize)numericPaginas).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBoxPortada).BeginInit();
             SuspendLayout();
             // 
             // label
@@ -113,7 +115,7 @@
             // 
             // txtSinopsis
             // 
-            txtSinopsis.Location = new Point(129, 319);
+            txtSinopsis.Location = new Point(129, 460);
             txtSinopsis.Multiline = true;
             txtSinopsis.Name = "txtSinopsis";
             txtSinopsis.Size = new Size(495, 70);
@@ -122,7 +124,7 @@
             // label5
             // 
             label5.AutoSize = true;
-            label5.Location = new Point(42, 319);
+            label5.Location = new Point(42, 460);
             label5.Name = "label5";
             label5.Size = new Size(66, 20);
             label5.TabIndex = 8;
@@ -130,7 +132,7 @@
             // 
             // numericPaginas
             // 
-            numericPaginas.Location = new Point(129, 412);
+            numericPaginas.Location = new Point(129, 553);
             numericPaginas.Maximum = new decimal(new int[] { 1000, 0, 0, 0 });
             numericPaginas.Name = "numericPaginas";
             numericPaginas.Size = new Size(150, 27);
@@ -140,7 +142,7 @@
             // label6
             // 
             label6.AutoSize = true;
-            label6.Location = new Point(46, 412);
+            label6.Location = new Point(46, 553);
             label6.Name = "label6";
             label6.Size = new Size(62, 20);
             label6.TabIndex = 11;
@@ -148,7 +150,7 @@
             // 
             // txtGenero
             // 
-            txtGenero.Location = new Point(129, 484);
+            txtGenero.Location = new Point(129, 625);
             txtGenero.Name = "txtGenero";
             txtGenero.Size = new Size(495, 27);
             txtGenero.TabIndex = 13;
@@ -156,7 +158,7 @@
             // label7
             // 
             label7.AutoSize = true;
-            label7.Location = new Point(53, 491);
+            label7.Location = new Point(53, 632);
             label7.Name = "label7";
             label7.Size = new Size(60, 20);
             label7.TabIndex = 12;
@@ -164,7 +166,7 @@
             // 
             // btnGuardar
             // 
-            btnGuardar.Location = new Point(95, 574);
+            btnGuardar.Location = new Point(92, 729);
             btnGuardar.Name = "btnGuardar";
             btnGuardar.Size = new Size(94, 29);
             btnGuardar.TabIndex = 14;
@@ -174,7 +176,7 @@
             // 
             // btnCancelar
             // 
-            btnCancelar.Location = new Point(563, 574);
+            btnCancelar.Location = new Point(539, 729);
             btnCancelar.Name = "btnCancelar";
             btnCancelar.Size = new Size(94, 29);
             btnCancelar.TabIndex = 15;
@@ -182,11 +184,21 @@
             btnCancelar.UseVisualStyleBackColor = true;
             btnCancelar.Click += btnCancelar_Click;
             // 
+            // pictureBoxPortada
+            // 
+            pictureBoxPortada.Location = new Point(259, 294);
+            pictureBoxPortada.Name = "pictureBoxPortada";
+            pictureBoxPortada.Size = new Size(196, 160);
+            pictureBoxPortada.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBoxPortada.TabIndex = 16;
+            pictureBoxPortada.TabStop = false;
+            // 
             // AgregarEditarLibroView
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(726, 628);
+            ClientSize = new Size(726, 770);
+            Controls.Add(pictureBoxPortada);
             Controls.Add(btnCancelar);
             Controls.Add(btnGuardar);
             Controls.Add(txtGenero);
@@ -207,6 +219,7 @@
             StartPosition = FormStartPosition.CenterParent;
             Text = "Agregar/Editar libro";
             ((System.ComponentModel.ISupportInitialize)numericPaginas).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBoxPortada).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -229,5 +242,6 @@
         private Label label7;
         private Button btnGuardar;
         private Button btnCancelar;
+        private PictureBox pictureBoxPortada;
     }
 }
