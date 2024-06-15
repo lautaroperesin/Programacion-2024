@@ -47,13 +47,13 @@
             dataGridLibros.RowHeadersVisible = false;
             dataGridLibros.RowHeadersWidth = 51;
             dataGridLibros.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dataGridLibros.Size = new Size(972, 557);
+            dataGridLibros.Size = new Size(816, 496);
             dataGridLibros.TabIndex = 0;
             // 
             // btnAgregar
             // 
             btnAgregar.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
-            btnAgregar.Location = new Point(37, 619);
+            btnAgregar.Location = new Point(37, 558);
             btnAgregar.Name = "btnAgregar";
             btnAgregar.Size = new Size(100, 39);
             btnAgregar.TabIndex = 1;
@@ -64,7 +64,7 @@
             // btnEditar
             // 
             btnEditar.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
-            btnEditar.Location = new Point(177, 619);
+            btnEditar.Location = new Point(177, 558);
             btnEditar.Name = "btnEditar";
             btnEditar.Size = new Size(100, 39);
             btnEditar.TabIndex = 2;
@@ -75,7 +75,7 @@
             // btnEliminar
             // 
             btnEliminar.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
-            btnEliminar.Location = new Point(319, 619);
+            btnEliminar.Location = new Point(319, 558);
             btnEliminar.Name = "btnEliminar";
             btnEliminar.Size = new Size(100, 39);
             btnEliminar.TabIndex = 3;
@@ -86,7 +86,7 @@
             // btnSalir
             // 
             btnSalir.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-            btnSalir.Location = new Point(909, 619);
+            btnSalir.Location = new Point(753, 558);
             btnSalir.Name = "btnSalir";
             btnSalir.Size = new Size(100, 39);
             btnSalir.TabIndex = 4;
@@ -99,7 +99,7 @@
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.InactiveCaption;
-            ClientSize = new Size(1062, 670);
+            ClientSize = new Size(906, 609);
             ControlBox = false;
             Controls.Add(btnSalir);
             Controls.Add(btnEliminar);

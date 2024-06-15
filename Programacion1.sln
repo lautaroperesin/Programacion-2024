@@ -7,7 +7,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EjerciciosDePrueba", "Ejerc
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ProyectoTesteoLibros", "ProyectoTesteoLibros\ProyectoTesteoLibros.csproj", "{E8C008A9-C2E5-422E-B1FD-DE6001A0EBB7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LibrosDesktop", "LibrosDesktop\LibrosDesktop.csproj", "{A1DB60E5-B7E5-43D3-B891-9555E6633E81}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LibrosDesktop", "LibrosDesktop\LibrosDesktop.csproj", "{A1DB60E5-B7E5-43D3-B891-9555E6633E81}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CancionesDesktop", "CancionesDesktop\CancionesDesktop.csproj", "{1FA2D5E9-3C82-454B-861E-7D76505C30C3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +29,10 @@ Global
 		{A1DB60E5-B7E5-43D3-B891-9555E6633E81}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A1DB60E5-B7E5-43D3-B891-9555E6633E81}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A1DB60E5-B7E5-43D3-B891-9555E6633E81}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1FA2D5E9-3C82-454B-861E-7D76505C30C3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1FA2D5E9-3C82-454B-861E-7D76505C30C3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1FA2D5E9-3C82-454B-861E-7D76505C30C3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1FA2D5E9-3C82-454B-861E-7D76505C30C3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
