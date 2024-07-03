@@ -1,6 +1,6 @@
 ﻿namespace CiclismoDesktop.Views
 {
-    partial class ClientesView
+    partial class EmpleadosView
     {
         /// <summary>
         /// Required designer variable.
@@ -28,33 +28,21 @@
         /// </summary>
         private void InitializeComponent()
         {
-            dataGridClientes = new DataGridView();
             btnSalir = new Button();
             btnEliminar = new Button();
             btnEditar = new Button();
             btnAgregar = new Button();
-            ((System.ComponentModel.ISupportInitialize)dataGridClientes).BeginInit();
+            dataGridViewEmpleados = new DataGridView();
+            ((System.ComponentModel.ISupportInitialize)dataGridViewEmpleados).BeginInit();
             SuspendLayout();
-            // 
-            // dataGridClientes
-            // 
-            dataGridClientes.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            dataGridClientes.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridClientes.Location = new Point(12, 12);
-            dataGridClientes.Name = "dataGridClientes";
-            dataGridClientes.ReadOnly = true;
-            dataGridClientes.RowHeadersVisible = false;
-            dataGridClientes.RowHeadersWidth = 51;
-            dataGridClientes.Size = new Size(776, 363);
-            dataGridClientes.TabIndex = 0;
             // 
             // btnSalir
             // 
             btnSalir.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-            btnSalir.Location = new Point(688, 381);
+            btnSalir.Location = new Point(688, 390);
             btnSalir.Name = "btnSalir";
             btnSalir.Size = new Size(100, 39);
-            btnSalir.TabIndex = 8;
+            btnSalir.TabIndex = 13;
             btnSalir.Text = "&Salir";
             btnSalir.UseVisualStyleBackColor = true;
             btnSalir.Click += btnSalir_Click;
@@ -62,37 +50,48 @@
             // btnEliminar
             // 
             btnEliminar.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
-            btnEliminar.Location = new Point(250, 381);
+            btnEliminar.Location = new Point(255, 390);
             btnEliminar.Name = "btnEliminar";
-            btnEliminar.Size = new Size(97, 39);
-            btnEliminar.TabIndex = 7;
+            btnEliminar.Size = new Size(94, 39);
+            btnEliminar.TabIndex = 12;
             btnEliminar.Text = "El&iminar";
             btnEliminar.UseVisualStyleBackColor = true;
-            btnEliminar.Click += btnEliminar_Click;
+            btnEliminar.Click += btnEliminar_Click_1;
             // 
             // btnEditar
             // 
             btnEditar.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
-            btnEditar.Location = new Point(135, 381);
+            btnEditar.Location = new Point(134, 390);
             btnEditar.Name = "btnEditar";
-            btnEditar.Size = new Size(90, 39);
-            btnEditar.TabIndex = 6;
+            btnEditar.Size = new Size(91, 39);
+            btnEditar.TabIndex = 11;
             btnEditar.Text = "&Editar";
             btnEditar.UseVisualStyleBackColor = true;
-            btnEditar.Click += btnEditar_Click;
             // 
             // btnAgregar
             // 
             btnAgregar.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
-            btnAgregar.Location = new Point(12, 381);
+            btnAgregar.Location = new Point(12, 390);
             btnAgregar.Name = "btnAgregar";
             btnAgregar.Size = new Size(94, 39);
-            btnAgregar.TabIndex = 5;
+            btnAgregar.TabIndex = 10;
             btnAgregar.Text = "&Agregar";
             btnAgregar.UseVisualStyleBackColor = true;
-            btnAgregar.Click += btnAgregar_Click;
+            btnAgregar.Click += btnAgregar_Click_1;
             // 
-            // ClientesView
+            // dataGridViewEmpleados
+            // 
+            dataGridViewEmpleados.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            dataGridViewEmpleados.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewEmpleados.Location = new Point(12, 21);
+            dataGridViewEmpleados.Name = "dataGridViewEmpleados";
+            dataGridViewEmpleados.ReadOnly = true;
+            dataGridViewEmpleados.RowHeadersVisible = false;
+            dataGridViewEmpleados.RowHeadersWidth = 51;
+            dataGridViewEmpleados.Size = new Size(776, 363);
+            dataGridViewEmpleados.TabIndex = 9;
+            // 
+            // EmpleadosView
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -101,20 +100,20 @@
             Controls.Add(btnEliminar);
             Controls.Add(btnEditar);
             Controls.Add(btnAgregar);
-            Controls.Add(dataGridClientes);
-            Name = "ClientesView";
+            Controls.Add(dataGridViewEmpleados);
+            Name = "EmpleadosView";
             StartPosition = FormStartPosition.CenterParent;
-            Text = "Clientes";
-            ((System.ComponentModel.ISupportInitialize)dataGridClientes).EndInit();
+            Text = "Empleados";
+            ((System.ComponentModel.ISupportInitialize)dataGridViewEmpleados).EndInit();
             ResumeLayout(false);
         }
 
         #endregion
 
-        private DataGridView dataGridClientes;
         private Button btnSalir;
         private Button btnEliminar;
         private Button btnEditar;
         private Button btnAgregar;
+        private DataGridView dataGridViewEmpleados;
     }
 }

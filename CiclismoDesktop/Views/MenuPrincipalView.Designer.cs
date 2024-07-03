@@ -33,6 +33,7 @@
             gestionarClientesToolStripMenuItem = new ToolStripMenuItem();
             salirToolStripMenuItem = new ToolStripMenuItem();
             salirDelSistemaToolStripMenuItem = new ToolStripMenuItem();
+            gestionarEmpleadosToolStripMenuItem = new ToolStripMenuItem();
             menuStrip1.SuspendLayout();
             SuspendLayout();
             // 
@@ -48,7 +49,7 @@
             // 
             // principalToolStripMenuItem
             // 
-            principalToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { gestionarClientesToolStripMenuItem });
+            principalToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { gestionarClientesToolStripMenuItem, gestionarEmpleadosToolStripMenuItem });
             principalToolStripMenuItem.Name = "principalToolStripMenuItem";
             principalToolStripMenuItem.Size = new Size(80, 24);
             principalToolStripMenuItem.Text = "Principal";
@@ -56,7 +57,7 @@
             // gestionarClientesToolStripMenuItem
             // 
             gestionarClientesToolStripMenuItem.Name = "gestionarClientesToolStripMenuItem";
-            gestionarClientesToolStripMenuItem.Size = new Size(224, 26);
+            gestionarClientesToolStripMenuItem.Size = new Size(233, 26);
             gestionarClientesToolStripMenuItem.Text = "Gestionar clientes";
             gestionarClientesToolStripMenuItem.Click += gestionarClientesToolStripMenuItem_Click;
             // 
@@ -73,6 +74,13 @@
             salirDelSistemaToolStripMenuItem.Size = new Size(200, 26);
             salirDelSistemaToolStripMenuItem.Text = "Salir del sistema";
             salirDelSistemaToolStripMenuItem.Click += salirDelSistemaToolStripMenuItem_Click;
+            // 
+            // gestionarEmpleadosToolStripMenuItem
+            // 
+            gestionarEmpleadosToolStripMenuItem.Name = "gestionarEmpleadosToolStripMenuItem";
+            gestionarEmpleadosToolStripMenuItem.Size = new Size(233, 26);
+            gestionarEmpleadosToolStripMenuItem.Text = "Gestionar empleados";
+            gestionarEmpleadosToolStripMenuItem.Click += gestionarEmpleadosToolStripMenuItem_Click;
             // 
             // MenuPrincipalView
             // 
@@ -99,5 +107,6 @@
         private ToolStripMenuItem salirToolStripMenuItem;
         private ToolStripMenuItem salirDelSistemaToolStripMenuItem;
         private ToolStripMenuItem gestionarClientesToolStripMenuItem;
+        private ToolStripMenuItem gestionarEmpleadosToolStripMenuItem;
     }
 }

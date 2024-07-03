@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CiclismoDesktop.Utils;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -13,24 +14,12 @@ namespace CiclismoDesktop.Views
 {
     public partial class ClientesView : Form
     {
-        // Establecemos la conexion
-        string connectionString = "server=.\\SQLEXPRESS; database=Ciclismo2; user=sa; password=123; multipleactiveresultsets=true; Encrypt=false";
-
-        SqlConnection conexion;
-
         SqlCommand cmd = new SqlCommand();
         public ClientesView()
         {
             InitializeComponent();
-            AbrirConexion();
+            cmd.Connection = Helper.CrearConexion();
             CargarDatosAGrilla();
-        }
-
-        private void AbrirConexion()
-        {
-            conexion = new SqlConnection(connectionString);
-            conexion.Open();
-            cmd.Connection = conexion;
         }
 
         private void CargarDatosAGrilla()
@@ -42,13 +31,13 @@ namespace CiclismoDesktop.Views
             // Cargamos los datos en un DataTable para poder mostrarlos en la grilla
             DataTable clientesTable = new DataTable();
             clientesTable.Load(clientesReader);
-            dataGridView1.DataSource = clientesTable;
+            dataGridClientes.DataSource = clientesTable;
         }
 
         private void btnEliminar_Click(object sender, EventArgs e)
         {
-            int idClienteAEliminar = (int)dataGridView1.CurrentRow.Cells[0].Value;
-            string nombreCliente = (string)dataGridView1.CurrentRow.Cells[1].Value;
+            int idClienteAEliminar = (int)dataGridClientes.CurrentRow.Cells[0].Value;
+            string nombreCliente = (string)dataGridClientes.CurrentRow.Cells[1].Value;
 
             // Mostramos un messageBox que pregunta si estas seguro de eliminar el cliente
             DialogResult respuesta = MessageBox.Show($"Está seguro que quiere eliminar al cliente {nombreCliente}?",
@@ -69,6 +58,19 @@ namespace CiclismoDesktop.Views
         {
             NuevoEditarClienteView nuevoEditarClienteView = new NuevoEditarClienteView();
             nuevoEditarClienteView.ShowDialog();
+        }
+
+        private void btnSalir_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void btnEditar_Click(object sender, EventArgs e)
+        {
+            int idClienteAEditar = (int) dataGridClientes.CurrentRow.Cells[0].Value;
+            NuevoEditarClienteView nuevoEditarClienteView = new NuevoEditarClienteView(idClienteAEditar);
+            nuevoEditarClienteView.ShowDialog();
+            CargarDatosAGrilla();
         }
     }
 }

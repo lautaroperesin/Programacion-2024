@@ -24,5 +24,11 @@ namespace CiclismoDesktop
             ClientesView clientesView = new ClientesView();
             clientesView.ShowDialog();
         }
+
+        private void gestionarEmpleadosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            EmpleadosView empleadosView = new EmpleadosView();
+            empleadosView.ShowDialog();
+        }
     }
 }
