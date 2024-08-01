@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CiclismoDesktop.Utils;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -13,23 +14,12 @@ namespace CiclismoDesktop.Views
 {
     public partial class EmpleadosView : Form
     {
-        // Establecemos la conexion
-        string connectionString = "server=.\\SQLEXPRESS; database=Ciclismo2; user=sa; password=123; multipleactiveresultsets=true; Encrypt=false";
-
-        SqlConnection conexion;
-
         SqlCommand cmd = new SqlCommand();
         public EmpleadosView()
         {
             InitializeComponent();
-            AbrirConexion();
+            cmd.Connection = Helper.CrearConexion();
             CargarDatosAGrilla();
-        }
-        private void AbrirConexion()
-        {
-            conexion = new SqlConnection(connectionString);
-            conexion.Open();
-            cmd.Connection = conexion;
         }
 
         private void CargarDatosAGrilla()
@@ -48,6 +38,7 @@ namespace CiclismoDesktop.Views
         {
             NuevoEditarEmpleadoView nuevoEditarEmpleadoView = new NuevoEditarEmpleadoView();
             nuevoEditarEmpleadoView.ShowDialog();
+            CargarDatosAGrilla();
         }
 
         private void btnSalir_Click(object sender, EventArgs e)
@@ -73,6 +64,14 @@ namespace CiclismoDesktop.Views
                 cmd.ExecuteNonQuery();
                 CargarDatosAGrilla();
             }
+        }
+
+        private void btnEditar_Click(object sender, EventArgs e)
+        {
+            int idEmpleadoAEditar = (int)dataGridViewEmpleados.CurrentRow.Cells[0].Value;
+            NuevoEditarEmpleadoView nuevoEditarEmpleadoView = new NuevoEditarEmpleadoView(idEmpleadoAEditar);
+            nuevoEditarEmpleadoView.ShowDialog();
+            CargarDatosAGrilla();
         }
     }
 }

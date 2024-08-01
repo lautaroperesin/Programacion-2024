@@ -11,7 +11,7 @@ namespace CiclismoDesktop.Utils
     {
         public static SqlConnection CrearConexion()
         {
-            string connectionString = "server=.\\SQLEXPRESS; database=Ciclismo2; user=sa; password=123; multipleactiveresultsets=true; Encrypt=false";
+            string connectionString = "server=.\\SQLEXPRESS; database=Ciclismo; user=sa; password=123; multipleactiveresultsets=true; Encrypt=false";
             SqlConnection conexion = new SqlConnection(connectionString);
             conexion.Open();
             return conexion;

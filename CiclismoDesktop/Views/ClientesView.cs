@@ -58,6 +58,7 @@ namespace CiclismoDesktop.Views
         {
             NuevoEditarClienteView nuevoEditarClienteView = new NuevoEditarClienteView();
             nuevoEditarClienteView.ShowDialog();
+            CargarDatosAGrilla();
         }
 
         private void btnSalir_Click(object sender, EventArgs e)
