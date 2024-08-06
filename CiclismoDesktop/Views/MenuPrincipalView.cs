@@ -30,5 +30,17 @@ namespace CiclismoDesktop
             EmpleadosView empleadosView = new EmpleadosView();
             empleadosView.ShowDialog();
         }
+
+        private void productosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ProductosView productosView = new ProductosView();
+            productosView.ShowDialog();
+        }
+
+        private void gestionarClientesStoredProcedureToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ClientesStoreProcedure clientesStoreProcedure = new ClientesStoreProcedure();
+            clientesStoreProcedure.ShowDialog();
+        }
     }
 }

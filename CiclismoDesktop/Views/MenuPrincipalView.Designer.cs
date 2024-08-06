@@ -31,9 +31,11 @@
             menuStrip1 = new MenuStrip();
             principalToolStripMenuItem = new ToolStripMenuItem();
             gestionarClientesToolStripMenuItem = new ToolStripMenuItem();
+            gestionarEmpleadosToolStripMenuItem = new ToolStripMenuItem();
+            productosToolStripMenuItem = new ToolStripMenuItem();
             salirToolStripMenuItem = new ToolStripMenuItem();
             salirDelSistemaToolStripMenuItem = new ToolStripMenuItem();
-            gestionarEmpleadosToolStripMenuItem = new ToolStripMenuItem();
+            gestionarClientesStoredProcedureToolStripMenuItem = new ToolStripMenuItem();
             menuStrip1.SuspendLayout();
             SuspendLayout();
             // 
@@ -49,7 +51,7 @@
             // 
             // principalToolStripMenuItem
             // 
-            principalToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { gestionarClientesToolStripMenuItem, gestionarEmpleadosToolStripMenuItem });
+            principalToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { gestionarClientesToolStripMenuItem, gestionarEmpleadosToolStripMenuItem, productosToolStripMenuItem, gestionarClientesStoredProcedureToolStripMenuItem });
             principalToolStripMenuItem.Name = "principalToolStripMenuItem";
             principalToolStripMenuItem.Size = new Size(80, 24);
             principalToolStripMenuItem.Text = "Principal";
@@ -57,9 +59,23 @@
             // gestionarClientesToolStripMenuItem
             // 
             gestionarClientesToolStripMenuItem.Name = "gestionarClientesToolStripMenuItem";
-            gestionarClientesToolStripMenuItem.Size = new Size(233, 26);
+            gestionarClientesToolStripMenuItem.Size = new Size(339, 26);
             gestionarClientesToolStripMenuItem.Text = "Gestionar clientes";
             gestionarClientesToolStripMenuItem.Click += gestionarClientesToolStripMenuItem_Click;
+            // 
+            // gestionarEmpleadosToolStripMenuItem
+            // 
+            gestionarEmpleadosToolStripMenuItem.Name = "gestionarEmpleadosToolStripMenuItem";
+            gestionarEmpleadosToolStripMenuItem.Size = new Size(339, 26);
+            gestionarEmpleadosToolStripMenuItem.Text = "Gestionar empleados";
+            gestionarEmpleadosToolStripMenuItem.Click += gestionarEmpleadosToolStripMenuItem_Click;
+            // 
+            // productosToolStripMenuItem
+            // 
+            productosToolStripMenuItem.Name = "productosToolStripMenuItem";
+            productosToolStripMenuItem.Size = new Size(339, 26);
+            productosToolStripMenuItem.Text = "Productos";
+            productosToolStripMenuItem.Click += productosToolStripMenuItem_Click;
             // 
             // salirToolStripMenuItem
             // 
@@ -75,12 +91,12 @@
             salirDelSistemaToolStripMenuItem.Text = "Salir del sistema";
             salirDelSistemaToolStripMenuItem.Click += salirDelSistemaToolStripMenuItem_Click;
             // 
-            // gestionarEmpleadosToolStripMenuItem
+            // gestionarClientesStoredProcedureToolStripMenuItem
             // 
-            gestionarEmpleadosToolStripMenuItem.Name = "gestionarEmpleadosToolStripMenuItem";
-            gestionarEmpleadosToolStripMenuItem.Size = new Size(233, 26);
-            gestionarEmpleadosToolStripMenuItem.Text = "Gestionar empleados";
-            gestionarEmpleadosToolStripMenuItem.Click += gestionarEmpleadosToolStripMenuItem_Click;
+            gestionarClientesStoredProcedureToolStripMenuItem.Name = "gestionarClientesStoredProcedureToolStripMenuItem";
+            gestionarClientesStoredProcedureToolStripMenuItem.Size = new Size(339, 26);
+            gestionarClientesStoredProcedureToolStripMenuItem.Text = "Gestionar clientes - Stored procedure";
+            gestionarClientesStoredProcedureToolStripMenuItem.Click += gestionarClientesStoredProcedureToolStripMenuItem_Click;
             // 
             // MenuPrincipalView
             // 
@@ -108,5 +124,7 @@
         private ToolStripMenuItem salirDelSistemaToolStripMenuItem;
         private ToolStripMenuItem gestionarClientesToolStripMenuItem;
         private ToolStripMenuItem gestionarEmpleadosToolStripMenuItem;
+        private ToolStripMenuItem productosToolStripMenuItem;
+        private ToolStripMenuItem gestionarClientesStoredProcedureToolStripMenuItem;
     }
 }
