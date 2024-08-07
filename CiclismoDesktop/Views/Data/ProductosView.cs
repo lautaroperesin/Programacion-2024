@@ -56,7 +56,9 @@ namespace CiclismoDesktop.Views
 
         private void btnAgregar_Click(object sender, EventArgs e)
         {
-
+            NuevoEditarProductoView nuevoEditarProductosView = new NuevoEditarProductoView();
+            nuevoEditarProductosView.ShowDialog();
+            CargarDatosAGrilla();
         }
 
         private void btnSalir_Click(object sender, EventArgs e)
@@ -67,7 +69,7 @@ namespace CiclismoDesktop.Views
         private void btnEditar_Click(object sender, EventArgs e)
         {
             int idProductosAEditar = (int)dataGridViewProductos.CurrentRow.Cells[0].Value;
-            NuevoEditarProductosView nuevoEditarProductosView = new NuevoEditarProductosView(idProductosAEditar);
+            NuevoEditarProductoView nuevoEditarProductosView = new NuevoEditarProductoView(idProductosAEditar);
             nuevoEditarProductosView.ShowDialog();
             CargarDatosAGrilla();
         }

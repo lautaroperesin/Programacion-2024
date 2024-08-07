@@ -1,6 +1,6 @@
 ﻿namespace CiclismoDesktop.Views
 {
-    partial class ClientesStoreProcedure
+    partial class ClientesStoreProcedureView
     {
         /// <summary>
         /// Required designer variable.
@@ -45,6 +45,7 @@
             btnSalir.TabIndex = 13;
             btnSalir.Text = "&Salir";
             btnSalir.UseVisualStyleBackColor = true;
+            btnSalir.Click += btnSalir_Click;
             // 
             // btnEliminar
             // 
@@ -66,6 +67,7 @@
             btnEditar.TabIndex = 11;
             btnEditar.Text = "&Editar";
             btnEditar.UseVisualStyleBackColor = true;
+            btnEditar.Click += btnEditar_Click;
             // 
             // btnAgregar
             // 
@@ -76,6 +78,7 @@
             btnAgregar.TabIndex = 10;
             btnAgregar.Text = "&Agregar";
             btnAgregar.UseVisualStyleBackColor = true;
+            btnAgregar.Click += btnAgregar_Click;
             // 
             // dataGridClientes
             // 
@@ -89,7 +92,7 @@
             dataGridClientes.Size = new Size(776, 363);
             dataGridClientes.TabIndex = 9;
             // 
-            // ClientesStoreProcedure
+            // ClientesStoreProcedureView
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -99,7 +102,8 @@
             Controls.Add(btnEditar);
             Controls.Add(btnAgregar);
             Controls.Add(dataGridClientes);
-            Name = "ClientesStoreProcedure";
+            Name = "ClientesStoreProcedureView";
+            StartPosition = FormStartPosition.CenterParent;
             Text = "ClientesStoreProcedure";
             ((System.ComponentModel.ISupportInitialize)dataGridClientes).EndInit();
             ResumeLayout(false);

@@ -39,7 +39,7 @@ namespace CiclismoDesktop
 
         private void gestionarClientesStoredProcedureToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            ClientesStoreProcedure clientesStoreProcedure = new ClientesStoreProcedure();
+            ClientesStoreProcedureView clientesStoreProcedure = new ClientesStoreProcedureView();
             clientesStoreProcedure.ShowDialog();
         }
     }

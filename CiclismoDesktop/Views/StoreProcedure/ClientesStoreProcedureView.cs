@@ -1,4 +1,5 @@
 ﻿using CiclismoDesktop.Utils;
+using CiclismoDesktop.Views.StoreProcedure;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -12,10 +13,10 @@ using System.Windows.Forms;
 
 namespace CiclismoDesktop.Views
 {
-    public partial class ClientesStoreProcedure : Form
+    public partial class ClientesStoreProcedureView : Form
     {
         SqlCommand cmd = new SqlCommand();
-        public ClientesStoreProcedure()
+        public ClientesStoreProcedureView()
         {
             InitializeComponent();
             cmd.Connection = Helper.CrearConexion();
@@ -56,6 +57,26 @@ namespace CiclismoDesktop.Views
                 cmd.Parameters.Clear();
                 CargarDatosAGrilla();
             }
+        }
+
+        private void btnSalir_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void btnAgregar_Click(object sender, EventArgs e)
+        {
+            NuevoEditarClienteSPView nuevoEditarClienteSPView = new NuevoEditarClienteSPView();
+            nuevoEditarClienteSPView.ShowDialog();
+            CargarDatosAGrilla();
+        }
+
+        private void btnEditar_Click(object sender, EventArgs e)
+        {
+            int idClienteAEditar = (int)dataGridClientes.CurrentRow.Cells[0].Value;
+            NuevoEditarClienteSPView nuevoEditarClienteSPView = new NuevoEditarClienteSPView(idClienteAEditar);
+            nuevoEditarClienteSPView.ShowDialog();
+            CargarDatosAGrilla();
         }
     }
 }

@@ -96,6 +96,7 @@
             Controls.Add(btnAgregar);
             Controls.Add(dataGridViewProductos);
             Name = "ProductosView";
+            StartPosition = FormStartPosition.CenterParent;
             Text = "ProductosView";
             ((System.ComponentModel.ISupportInitialize)dataGridViewProductos).EndInit();
             ResumeLayout(false);
