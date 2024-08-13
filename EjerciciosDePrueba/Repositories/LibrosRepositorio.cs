@@ -27,20 +27,8 @@ namespace EjerciciosDePrueba.Repositories
             return JsonConvert.DeserializeObject<ObservableCollection<Libro>>(response);
         }
 
-        public async Task<Libro?> AgregarAsync(string nombre, int paginas, string autor, string editorial, string genero, string sinopsis, string portada_url)
+        public async Task<Libro?> AgregarAsync(Libro libro)
         {
-            // Creamos un objeto del tipo Libro con los parámetros que llegan
-            Libro libro = new Libro()
-            {
-                nombre = nombre,
-                paginas = paginas,
-                autor = autor,
-                editorial = editorial,
-                genero = genero,
-                sinopsis = sinopsis,
-                portada_url = portada_url
-            };
-
             // Enviamos por POST el objeto que creamos a la URL de la API
             var libroJson = new StringContent(
                     JsonConvert.SerializeObject(libro),
@@ -55,26 +43,14 @@ namespace EjerciciosDePrueba.Repositories
                 await response.Content.ReadAsStringAsync());
         }
 
-        public async Task<Libro?> ActualizarAsync(string nombre, int paginas, string autor, string editorial, string genero, string sinopsis, string portada_url, string id)
+        public async Task<Libro?> ActualizarAsync(Libro libro)
         {
-            //creamos un objeto del tipo Libro con los parámetros que llegan
-            Libro libro = new Libro()
-            {
-                nombre = nombre,
-                paginas = paginas,
-                autor = autor,
-                editorial = editorial,
-                genero = genero,
-                sinopsis = sinopsis,
-                portada_url = portada_url
-            };
-
             //enviamos por PUT el objeto que creamos a la URL de la API
             var librojson = new StringContent(
                     JsonConvert.SerializeObject(libro),
                     Encoding.UTF8, "application/json");
 
-            var response = await client.PutAsync(urlApi + "/" + id, librojson);
+            var response = await client.PutAsync(urlApi + "/" + libro._id, librojson);
 
             //retorna el objeto que se agregó en la API ya con su ID generado por la base de datos
             return JsonConvert.DeserializeObject<Libro>(

@@ -1,6 +1,6 @@
 ﻿namespace CiclismoDesktop.Views
 {
-    partial class ClientesStoreProcedureView
+    partial class ClientesSPView
     {
         /// <summary>
         /// Required designer variable.

@@ -1,4 +1,5 @@
-﻿using EjerciciosDePrueba.Repositories;
+﻿using EjerciciosDePrueba.Models;
+using EjerciciosDePrueba.Repositories;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,16 +15,18 @@ namespace LibrosDesktop.Views
 {
     public partial class GestionLibrosView : Form
     {
+        BindingSource listaLibros = new BindingSource();
         LibrosRepositorio repo = new LibrosRepositorio();
         public GestionLibrosView()
         {
             InitializeComponent();
+            dataGridLibros.DataSource = listaLibros;
             CargarLibrosALaGrilla();
         }
 
         private async void CargarLibrosALaGrilla()
         {
-            dataGridLibros.DataSource = await repo.ObtenerLibrosAsync();
+            listaLibros.DataSource = await repo.ObtenerLibrosAsync();
         }
 
         private void btnAgregar_Click(object sender, EventArgs e)
@@ -40,12 +43,10 @@ namespace LibrosDesktop.Views
 
         private async void btnEliminar_Click(object sender, EventArgs e)
         {
-            // Obtener el ID del libro seleccionado y su nombre
-            string? idLibroSeleccionado = (string)dataGridLibros.CurrentRow.Cells[0].Value;
-            string? nombreLibroSeleccionado = (string)dataGridLibros.CurrentRow.Cells[1].Value;
+            var libro = (Libro)listaLibros.Current;
 
             // Mostramos un messageBox que pregunta si estas seguro de eliminar el libro
-            DialogResult respuesta = MessageBox.Show($"Está seguro que quiere eliminar el libro {nombreLibroSeleccionado}?",
+            DialogResult respuesta = MessageBox.Show($"Está seguro que quiere eliminar el libro {libro.nombre}?",
                                "Eliminar libro",
                                MessageBoxButtons.YesNo,
                                MessageBoxIcon.Question);
@@ -53,19 +54,18 @@ namespace LibrosDesktop.Views
             // Si el usuario selecciono que quiere eliminar, enviamos a borrar el libro utilizando el id y el objeto repo.
             if (respuesta == DialogResult.Yes)
             {
-                await repo.EliminarAsync(idLibroSeleccionado);
+                await repo.EliminarAsync(libro._id);
                 CargarLibrosALaGrilla();
             }
         }
 
         private void btnEditar_Click(object sender, EventArgs e)
         {
-            // Obtener el ID del libro seleccionado
-            string? idLibroSeleccionado = (string)dataGridLibros.CurrentRow.Cells[0].Value;
+            var libro = (Libro)listaLibros.Current;
 
             // Instanciar la ventana AgregarEditarLibro y pasarle ese ID a su constructor
             // (vamos a tener que crear un nuevo constructor en ese formulario que este preparado para recibir ese ID)
-            AgregarEditarLibroView agregarEditarLibroView = new AgregarEditarLibroView(idLibroSeleccionado);
+            AgregarEditarLibroView agregarEditarLibroView = new AgregarEditarLibroView(libro);
 
             // LLamamos a la ventana con el metodo showmodal que la pone por encima
             agregarEditarLibroView.ShowDialog();

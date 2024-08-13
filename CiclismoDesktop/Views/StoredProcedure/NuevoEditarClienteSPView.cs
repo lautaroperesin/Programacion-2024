@@ -21,19 +21,23 @@ namespace CiclismoDesktop.Views.StoreProcedure
         {
             InitializeComponent();
             cmd.Connection = Helper.CrearConexion();
+            cmd.CommandType = CommandType.StoredProcedure;
         }
 
         public NuevoEditarClienteSPView(int idClienteAEditar)
         {
             InitializeComponent();
             cmd.Connection = Helper.CrearConexion();
+            cmd.CommandType = CommandType.StoredProcedure;
             this.idClienteAEditar = idClienteAEditar;
             CargarDatosEnPantalla();
         }
 
         private void CargarDatosEnPantalla()
         {
-            cmd.CommandText = $"SELECT * FROM Clientes WHERE ID = {this.idClienteAEditar}";
+            cmd.Parameters.Clear();
+            cmd.CommandText = "GetClientById";
+            cmd.Parameters.AddWithValue("ID", idClienteAEditar);
             var clienteReader = cmd.ExecuteReader();
             if (clienteReader != null)
             {
@@ -49,21 +53,18 @@ namespace CiclismoDesktop.Views.StoreProcedure
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
+            cmd.Parameters.Clear();
+            cmd.Parameters.AddWithValue("Nombre", txtNombre.Text);
+            cmd.Parameters.AddWithValue("NombreContacto", txtNombreContacto.Text);
+            cmd.Parameters.AddWithValue("ApellidoContacto", txtApellidoContacto.Text);
+
             if (idClienteAEditar == null)
             {
-                cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("Nombre", txtNombre.Text);
-                cmd.Parameters.AddWithValue("NombreContacto", txtNombreContacto.Text);
-                cmd.Parameters.AddWithValue("ApellidoContacto", txtApellidoContacto.Text);
                 cmd.CommandText = $"AddClient";
             }
             else
             {
-                cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("ID", idClienteAEditar);
-                cmd.Parameters.AddWithValue("Nombre", txtNombre.Text);
-                cmd.Parameters.AddWithValue("NombreContacto", txtNombreContacto.Text);
-                cmd.Parameters.AddWithValue("ApellidoContacto", txtApellidoContacto.Text);
                 cmd.CommandText = $"UpdateClient";
             }
             cmd.ExecuteNonQuery();

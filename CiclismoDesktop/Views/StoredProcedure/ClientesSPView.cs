@@ -13,10 +13,10 @@ using System.Windows.Forms;
 
 namespace CiclismoDesktop.Views
 {
-    public partial class ClientesStoreProcedureView : Form
+    public partial class ClientesSPView : Form
     {
         SqlCommand cmd = new SqlCommand();
-        public ClientesStoreProcedureView()
+        public ClientesSPView()
         {
             InitializeComponent();
             cmd.Connection = Helper.CrearConexion();

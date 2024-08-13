@@ -14,41 +14,33 @@ namespace LibrosDesktop.Views
 {
     public partial class AgregarEditarLibroView : Form
     {
-        private string idLibroSeleccionado;
         LibrosRepositorio repo = new LibrosRepositorio();
+        private Libro libro;
 
         // Constructor
         public AgregarEditarLibroView()
         {
             InitializeComponent();
+            this.libro = new Libro();
         }
 
-        // Constructor que recibe el id como parametro
-        public AgregarEditarLibroView(string idLibroSeleccionado)
+        public AgregarEditarLibroView(Libro libro)
         {
-            this.idLibroSeleccionado = idLibroSeleccionado;
+            this.libro = libro;
             InitializeComponent();
             CargarDatosLibrosEnPantalla();
         }
 
-        private async void CargarDatosLibrosEnPantalla()
+        private void CargarDatosLibrosEnPantalla()
         {
-            Libro? libro = await repo.ObtenerPorIdAsync(this.idLibroSeleccionado);
-            if(libro != null)
-            {
-                txtNombre.Text = libro.nombre;
-                txtAutor.Text = libro.autor;
-                txtEditorial.Text = libro.editorial;
-                txtGenero.Text = libro.genero;
-                txtPortada.Text = libro.portada_url;
-                txtSinopsis.Text = libro.sinopsis;
-                numericPaginas.Value = libro.paginas;
-                pictureBoxPortada.ImageLocation = libro.portada_url;
-            }
-            else
-            {
-                MessageBox.Show("Error: no se encontró el libro");
-            }
+            txtNombre.Text = libro.nombre;
+            txtAutor.Text = libro.autor;
+            txtEditorial.Text = libro.editorial;
+            txtGenero.Text = libro.genero;
+            txtPortada.Text = libro.portada_url;
+            txtSinopsis.Text = libro.sinopsis;
+            numericPaginas.Value = libro.paginas;
+            pictureBoxPortada.ImageLocation = libro.portada_url;
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
@@ -58,29 +50,23 @@ namespace LibrosDesktop.Views
 
         private async void btnGuardar_Click(object sender, EventArgs e)
         {
-            if(this.idLibroSeleccionado != null)
+            this.libro.nombre = txtNombre.Text;
+            this.libro.autor = txtAutor.Text;
+            this.libro.genero = txtGenero.Text;
+            this.libro.portada_url = txtPortada.Text;
+            this.libro.sinopsis = txtSinopsis.Text;
+            this.libro.paginas = (int)numericPaginas.Value;
+            this.libro.editorial = txtEditorial.Text;
+
+            if (libro._id != null)
             {
-                await repo.ActualizarAsync(txtNombre.Text,
-                                    (int)numericPaginas.Value,
-                                    txtAutor.Text,
-                                    txtEditorial.Text,
-                                    txtGenero.Text,
-                                    txtSinopsis.Text,
-                                    txtPortada.Text,
-                                    this.idLibroSeleccionado);
-                this.Close();
+                await repo.ActualizarAsync(this.libro);
             }
             else
             {
-                await repo.AgregarAsync(txtNombre.Text,
-                                    (int)numericPaginas.Value,
-                                    txtAutor.Text,
-                                    txtEditorial.Text,
-                                    txtGenero.Text,
-                                    txtSinopsis.Text,
-                                    txtPortada.Text);
-                this.Close();
+                await repo.AgregarAsync(this.libro);
             }
+            this.Close();
         }
     }
 }
