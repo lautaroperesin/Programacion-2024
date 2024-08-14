@@ -42,5 +42,11 @@ namespace CiclismoDesktop
             ClientesSPView clientesStoreProcedure = new ClientesSPView();
             clientesStoreProcedure.ShowDialog();
         }
+
+        private void gestionarClientesORMToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ClientesORMView clientesORMView = new ClientesORMView();
+            clientesORMView.ShowDialog();
+        }
     }
 }
