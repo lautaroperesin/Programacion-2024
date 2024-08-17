@@ -1,4 +1,5 @@
 using CiclismoDesktop.Views;
+using CiclismoDesktop.Views.StoredProcedure.ProductosSP;
 
 namespace CiclismoDesktop
 {
@@ -47,6 +48,12 @@ namespace CiclismoDesktop
         {
             ClientesORMView clientesORMView = new ClientesORMView();
             clientesORMView.ShowDialog();
+        }
+
+        private void productosStoredProcedureToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ProductosSPView productosSPView = new ProductosSPView();
+            productosSPView.ShowDialog();
         }
     }
 }

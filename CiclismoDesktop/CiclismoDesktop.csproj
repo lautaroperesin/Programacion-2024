@@ -19,7 +19,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Update="Views\ORM\NuevoEditarClienteORMView.cs">
+    <Compile Update="Views\ORM\ClientesORM\NuevoEditarClienteORMView.cs">
       <SubType>Form</SubType>
     </Compile>
   </ItemGroup>
