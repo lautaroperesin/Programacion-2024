@@ -1,4 +1,5 @@
 using CiclismoDesktop.Views;
+using CiclismoDesktop.Views.Linq;
 using CiclismoDesktop.Views.StoredProcedure.ProductosSP;
 
 namespace CiclismoDesktop
@@ -54,6 +55,12 @@ namespace CiclismoDesktop
         {
             ProductosSPView productosSPView = new ProductosSPView();
             productosSPView.ShowDialog();
+        }
+
+        private void pruebaConLINQToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            PruebasLinqView pruebasLinqView = new PruebasLinqView();
+            pruebasLinqView.ShowDialog();
         }
     }
 }

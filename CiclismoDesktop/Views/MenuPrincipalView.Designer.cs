@@ -38,6 +38,7 @@
             gestionarEmpleadosToolStripMenuItem = new ToolStripMenuItem();
             salirToolStripMenuItem = new ToolStripMenuItem();
             salirDelSistemaToolStripMenuItem = new ToolStripMenuItem();
+            pruebaConLINQToolStripMenuItem = new ToolStripMenuItem();
             menuStrip1.SuspendLayout();
             SuspendLayout();
             // 
@@ -53,7 +54,7 @@
             // 
             // principalToolStripMenuItem
             // 
-            principalToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { gestionarClientesToolStripMenuItem, gestionarClientesStoredProcedureToolStripMenuItem, gestionarClientesORMToolStripMenuItem, productosToolStripMenuItem, productosStoredProcedureToolStripMenuItem, gestionarEmpleadosToolStripMenuItem });
+            principalToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { gestionarClientesToolStripMenuItem, gestionarClientesStoredProcedureToolStripMenuItem, gestionarClientesORMToolStripMenuItem, productosToolStripMenuItem, productosStoredProcedureToolStripMenuItem, gestionarEmpleadosToolStripMenuItem, pruebaConLINQToolStripMenuItem });
             principalToolStripMenuItem.Name = "principalToolStripMenuItem";
             principalToolStripMenuItem.Size = new Size(80, 24);
             principalToolStripMenuItem.Text = "Principal";
@@ -114,6 +115,13 @@
             salirDelSistemaToolStripMenuItem.Text = "Salir del sistema";
             salirDelSistemaToolStripMenuItem.Click += salirDelSistemaToolStripMenuItem_Click;
             // 
+            // pruebaConLINQToolStripMenuItem
+            // 
+            pruebaConLINQToolStripMenuItem.Name = "pruebaConLINQToolStripMenuItem";
+            pruebaConLINQToolStripMenuItem.Size = new Size(288, 26);
+            pruebaConLINQToolStripMenuItem.Text = "Prueba con LINQ";
+            pruebaConLINQToolStripMenuItem.Click += pruebaConLINQToolStripMenuItem_Click;
+            // 
             // MenuPrincipalView
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -144,5 +152,6 @@
         private ToolStripMenuItem gestionarClientesStoredProcedureToolStripMenuItem;
         private ToolStripMenuItem gestionarClientesORMToolStripMenuItem;
         private ToolStripMenuItem productosStoredProcedureToolStripMenuItem;
+        private ToolStripMenuItem pruebaConLINQToolStripMenuItem;
     }
 }
