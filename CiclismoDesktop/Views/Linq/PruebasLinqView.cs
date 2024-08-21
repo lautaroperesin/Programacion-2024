@@ -1,4 +1,5 @@
-﻿using CiclismoDesktop.Modelos;
+﻿using CiclismoDesktop.DataContext;
+using CiclismoDesktop.Modelos;
 using CiclismoDesktop.Models;
 using Microsoft.EntityFrameworkCore;
 using Newtonsoft.Json.Linq;
@@ -92,6 +93,17 @@ namespace CiclismoDesktop.Views.Linq
 
         private void btnSelectMany_Click(object sender, EventArgs e)
         {
+            // Creamos un array objects
+            object[] objetos = { 1, "San Justo", true, new string[] { "Hola", "Mundo" }, 5, "Crespo", 7.5f, 8, 9, new string[] { "Santa fe", "Argentina" } };
+
+            // Con LINQ filtramos los numeros pares y creamos un nuevo array
+            var textosEnArray = objetos.OfType<string[]>().SelectMany(a => a).Select(s => new
+            {
+                TextosArray = s
+            });
+
+            // Asignamos el nuevo array a la grilla
+            dataGridResultados.DataSource = textosEnArray;
         }
 
         private void btnPruebaWhere_Click(object sender, EventArgs e)
@@ -127,9 +139,75 @@ namespace CiclismoDesktop.Views.Linq
         {
             using (var context = new CiclismoContext())
             {
-                var clientes = context.Clientes.OrderBy(c => c.Pais).ThenBy(c=>c.Nombre);
+                var clientes = context.Clientes.OrderBy(c => c.Pais).ThenBy(c => c.Nombre);
 
                 dataGridResultados.DataSource = clientes.ToList();
+            }
+        }
+
+        private void btnPruebaOfType_Click(object sender, EventArgs e)
+        {
+            // Creamos un array objects
+            object[] objects = { 1, "San Justo", true, new string[] { "Hola", "Mundo" }, 5, "Crespo", 7.5f, 8, 9, 10 };
+
+            // Con LINQ filtramos los numeros pares y creamos un nuevo array
+            var textosEnArray = objects.OfType<int>().Select(s => new
+            {
+                NumerosEnteros = s
+            });
+
+            // Asignamos el nuevo array a la grilla
+            dataGridResultados.DataSource = textosEnArray;
+        }
+
+        private void btnOrderByDescending_Click(object sender, EventArgs e)
+        {
+            using (var context = new ArgentinaContext())
+            {
+                // Extension Methods (Metodos de Extension)
+                var provincias = context.Provincias.OrderByDescending(p => p.Nombre);
+
+                // Query Expresion
+                //var provincias = from p in context.Provincias
+                //                 orderby p.Nombre descending
+                //                 select p;
+
+                dataGridResultados.DataSource = provincias.ToList();
+            }
+        }
+
+        private void btnPruebaGroupBy_Click(object sender, EventArgs e)
+        {
+            using (var context = new ArgentinaContext())
+            {
+                var dptosAgrupadosPorProvincia = context.Departamentos.Include(d => d.Provincias).GroupBy(d => d.ProvinciasId).Select(d => new
+                {
+                    NroProvincia = d.Key,
+                    Provincia = d.First().Provincias.Nombre,
+                    Nro_Departamentos = d.Count()
+                });
+
+                dataGridResultados.DataSource = dptosAgrupadosPorProvincia.ToList();
+            }
+        }
+
+        // TAREA: Mostrar la cantidad de localidades que tiene cada departamento de la provincia de Santa Fe
+        private void btnGroupByTarea_Click(object sender, EventArgs e)
+        {
+            using (var context = new ArgentinaContext()) 
+            {
+                var localidadesPorDepartamento = context.Localidades
+                    .Where(d=>d.Departamentos.Provincias.Nombre == "Santa Fe")
+                    .Include(d => d.Departamentos)
+                    .ThenInclude(d=>d.Provincias)   // ThenInclude, cuando una vinculacion es ternaria
+                    .GroupBy(d=>d.DepartamentosId)
+                    .Select(d=>new
+                {
+                    Departamento = d.First().Departamentos.Nombre,
+                    CantidadLocalidades = d.Count()
+                });
+
+                dataGridResultados.DataSource = localidadesPorDepartamento.ToList();
             }
         }
     }

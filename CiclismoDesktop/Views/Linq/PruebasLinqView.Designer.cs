@@ -40,6 +40,10 @@
             txtFiltro = new TextBox();
             btnPruebaOrderBy = new Button();
             btnOrderByAvanzado = new Button();
+            btnPruebaOfType = new Button();
+            btnOrderByDescending = new Button();
+            btnPruebaGroupBy = new Button();
+            btnGroupByTarea = new Button();
             ((System.ComponentModel.ISupportInitialize)dataGridResultados).BeginInit();
             SuspendLayout();
             // 
@@ -151,7 +155,7 @@
             // 
             // btnOrderByAvanzado
             // 
-            btnOrderByAvanzado.Location = new Point(223, 390);
+            btnOrderByAvanzado.Location = new Point(223, 388);
             btnOrderByAvanzado.Name = "btnOrderByAvanzado";
             btnOrderByAvanzado.Size = new Size(145, 48);
             btnOrderByAvanzado.TabIndex = 11;
@@ -159,11 +163,55 @@
             btnOrderByAvanzado.UseVisualStyleBackColor = true;
             btnOrderByAvanzado.Click += btnOrderByAvanzado_Click;
             // 
+            // btnPruebaOfType
+            // 
+            btnPruebaOfType.Location = new Point(525, 388);
+            btnPruebaOfType.Name = "btnPruebaOfType";
+            btnPruebaOfType.Size = new Size(145, 48);
+            btnPruebaOfType.TabIndex = 12;
+            btnPruebaOfType.Text = "Prueba OfType";
+            btnPruebaOfType.UseVisualStyleBackColor = true;
+            btnPruebaOfType.Click += btnPruebaOfType_Click;
+            // 
+            // btnOrderByDescending
+            // 
+            btnOrderByDescending.Location = new Point(374, 388);
+            btnOrderByDescending.Name = "btnOrderByDescending";
+            btnOrderByDescending.Size = new Size(145, 48);
+            btnOrderByDescending.TabIndex = 13;
+            btnOrderByDescending.Text = "Prueba OrderByDesc";
+            btnOrderByDescending.UseVisualStyleBackColor = true;
+            btnOrderByDescending.Click += btnOrderByDescending_Click;
+            // 
+            // btnPruebaGroupBy
+            // 
+            btnPruebaGroupBy.Location = new Point(72, 442);
+            btnPruebaGroupBy.Name = "btnPruebaGroupBy";
+            btnPruebaGroupBy.Size = new Size(145, 48);
+            btnPruebaGroupBy.TabIndex = 14;
+            btnPruebaGroupBy.Text = "Prueba GroupBy";
+            btnPruebaGroupBy.UseVisualStyleBackColor = true;
+            btnPruebaGroupBy.Click += btnPruebaGroupBy_Click;
+            // 
+            // btnGroupByTarea
+            // 
+            btnGroupByTarea.Location = new Point(223, 442);
+            btnGroupByTarea.Name = "btnGroupByTarea";
+            btnGroupByTarea.Size = new Size(145, 48);
+            btnGroupByTarea.TabIndex = 15;
+            btnGroupByTarea.Text = "Tarea GroupBy";
+            btnGroupByTarea.UseVisualStyleBackColor = true;
+            btnGroupByTarea.Click += btnGroupByTarea_Click;
+            // 
             // PruebasLinqView
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(800, 508);
+            Controls.Add(btnGroupByTarea);
+            Controls.Add(btnPruebaGroupBy);
+            Controls.Add(btnOrderByDescending);
+            Controls.Add(btnPruebaOfType);
             Controls.Add(btnOrderByAvanzado);
             Controls.Add(btnPruebaOrderBy);
             Controls.Add(txtFiltro);
@@ -198,5 +246,9 @@
         private TextBox txtFiltro;
         private Button btnPruebaOrderBy;
         private Button btnOrderByAvanzado;
+        private Button btnPruebaOfType;
+        private Button btnOrderByDescending;
+        private Button btnPruebaGroupBy;
+        private Button btnGroupByTarea;
     }
 }
